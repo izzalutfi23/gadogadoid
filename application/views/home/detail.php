@@ -44,13 +44,13 @@
 						<p class="font-weight-bold text-black">Mature</p>
 					</div>
 				</div>
-                <!-- End About -->
+				<!-- End About -->
 
-                <hr>
-                
-                <!-- Specifications Game -->
+				<hr>
+
+				<!-- Specifications Game -->
 				<p class="font-weight-bold text-black pt-3">Specification</p>
-                <div class="row pb-4">
+				<div class="row pb-4">
 					<div class="col-lg-6">
 						<div>Minimum</div>
 					</div>
@@ -58,7 +58,7 @@
 						<div>Recomended</div>
 					</div>
 				</div>
-                <div class="row">
+				<div class="row">
 					<div class="col-lg-6">
 						<div>OS</div>
 						<p class="font-weight-bold text-black">Windows 7</p>
@@ -87,8 +87,8 @@
 						<div>Memory</div>
 						<p class="font-weight-bold text-black">1024 MB RAM</p>
 					</div>
-                </div>
-                <div class="row">
+				</div>
+				<div class="row">
 					<div class="col-lg-6">
 						<div>Storage</div>
 						<p class="font-weight-bold text-black">2 GB</p>
@@ -97,8 +97,8 @@
 						<div>Storage</div>
 						<p class="font-weight-bold text-black">2 GB</p>
 					</div>
-                </div>
-                <div class="row">
+				</div>
+				<div class="row">
 					<div class="col-lg-6">
 						<div>Graphic</div>
 						<p class="font-weight-bold text-black">Any card during or after 2019</p>
@@ -122,6 +122,37 @@
 				<span class="sub-title mb-3 mt-1 d-block" style="font-size: 30px; color: #000;">Review</span>
 			</div>
 		</div>
-		khvhvhv
+		<div class="row">
+			<div class="col-12">
+				<div class="comments">
+					<div class="comments-details">
+						<span class="total-comments comments-sort">11 Reviewer</span>
+					</div>
+					<div class="comment-box add-comment">
+						<span class="commenter-pic">
+							<img src="<?=base_url()?>asset/images/avatar.png" class="img-fluid">
+						</span>
+						<span class="commenter-name">
+							<input type="text" placeholder="Add a public comment" name="Add Comment">
+							<button type="submit" class="btn btn-default">Comment</button>
+							<button type="cancel" class="btn btn-default">Cancel</button>
+						</span>
+					</div>
+					<div class="comment-box">
+						<span class="commenter-pic">
+							<img src="<?=base_url()?>asset/images/avatar.png" class="img-fluid">
+						</span>
+						<span class="commenter-name">
+							<a href="#">Happy uiuxStream</a>
+						</span>
+						<p class="comment-txt more">Suspendisse massa enim, condimentum sit amet maximus quis, pulvinar
+							sit amet ante. Fusce eleifend dui mi, blandit vehicula orci iaculis ac.</p>
+						<div class="comment-meta">
+							<p>6 August 2020</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div> <!-- END .site-section -->
+</div>
