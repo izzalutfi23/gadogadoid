@@ -5,6 +5,20 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('home/_header');
-	}
+        $data = array(
+            'title' => 'Home | Gadogadoid'
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/home');
+        $this->load->view('home/_footer');
+    }
+    
+    public function detail(){
+        $data = array(
+            'title' => 'Detail | Gadogadoid'
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/detail');
+        $this->load->view('home/_footer');
+    }
 }

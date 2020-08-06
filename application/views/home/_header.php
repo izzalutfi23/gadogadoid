@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Grunt &mdash; Website Template by Colorlib</title>
+	<title><?=$title?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,10 +25,27 @@
 	<style type="text/css">
 		.head {
 			margin-top: 50px;
+        }
+
+        .head-review{
+            margin-top: 10px;
+        }
+
+		.gambardetail {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+            width: 50%;
+            height: auto;
+            padding-bottom: 20px;
 		}
 
 		@media screen and (max-width: 800px) {
 			.gambar {
+				height: auto;
+			}
+
+			.gambardetail {
 				height: auto;
 			}
 
@@ -59,6 +76,10 @@
 
 		@media screen and (max-width: 600px) {
 			.gambar {
+				height: auto;
+			}
+
+			.gambardetail {
 				height: auto;
 			}
 
@@ -132,11 +153,11 @@
 
 		.display-4 {
 			font-size: 30px;
-        }
-        
-        .site-footer{
-            padding-top: 5rem;
-        }
+		}
+
+		.site-footer {
+			padding-top: 5rem;
+		}
 
 	</style>
 
@@ -164,7 +185,7 @@
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-6 col-md-3">
-							<h1 class="my-0 site-logo"><a href="index.html">Gadogado<span
+							<h1 class="my-0 site-logo"><a href="<?=base_url('home')?>">Gadogado<span
 										class="text-primary">.id</span> </a></h1>
 						</div>
 						<div class="col-6 col-md-9">
@@ -173,8 +194,8 @@
 									<ul class="menuheader">
 										<li><a href="<?=base_url('home')?>">Home</a></li>
 										<li><a href="#showcase" class="smoothscroll">Showcase</a></li>
-                                        <li><a href="#review" class="smoothscroll">Review</a></li>
-                                        <li><a href="#newgame" class="smoothscroll">New Game</a></li>
+										<li><a href="#review" class="smoothscroll">Review</a></li>
+										<li><a href="#newgame" class="smoothscroll">New Game</a></li>
 									</ul>
 
 									<div class="drespon">
@@ -219,376 +240,3 @@
 				</div>
 			</div>
 		</div> <!-- END .site-navbar-wrap -->
-
-		<div class="head" id="head">
-			<div class="container content-header" style="background-color: #FFF;">
-				<!-- Photo Grid -->
-				<div class="row">
-					<div class="col-sm-8 mt-4">
-						<div class="content">
-							<img src="<?=base_url()?>asset/images/vainglory1.jpg" class="gambar" width="100%"
-								height="425px">
-							<div class="carousel-caption">
-								<div class="text-lg-left capt">Review and Showcase:</div>
-								<div class="display-4 text-lg-left text-light">Vainglory</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 mt-4">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="sidebar-top">
-									<img src="<?=base_url()?>asset/images/dota2.jpg" class="gambar" width="100%"
-										height="200px">
-									<div class="carousel-caption">
-										<div class="text-lg-left capt">Review and Showcase:
-										</div>
-										<div class="display-4 text-lg-left text-light">Dota 2</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-12 mt-4">
-								<div class="sidebar-bottom">
-									<img src="<?=base_url()?>asset/images/pubg.jpg" class="gambar" width="100%"
-										height="200px">
-									<div class="carousel-caption">
-										<div class="text-lg-left capt">Review and Showcase:
-										</div>
-										<div class="display-4 text-lg-left text-light">PUBG</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> <!-- END .site-section -->
-
-
-		<div class="head" id="showcase">
-			<div class="container p-5" style="background-color: #FFF;">
-				<div class="row mb-5 ">
-					<div class="col-md-7 section-title text-center mx-auto">
-						<span class="sub-title mb-3 mt-1 d-block" style="font-size: 30px; color: #000;">Showcase</span>
-					</div>
-				</div>
-
-				<div class="row mb-md-2">
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/smashbros.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/crossing.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/fortnite.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/zelda.jpg" class="card-img-top" alt="image"> </a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/smashbros.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/crossing.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/fortnite.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/zelda.jpg" class="card-img-top" alt="image"> </a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="row py-4 mt-md-5">
-					<div class="col text-center">
-						<a href="#" class="btn btn-lg shadow btn-primary mt-1">Find Another Game <svg width="1em"
-								height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor"
-								xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd"
-									d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
-								<path fill-rule="evenodd"
-									d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z" />
-							</svg></a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- End Showcase -->
-
-		<div class="head" id="review">
-			<div class="container p-5" style="background-color: #FFF;">
-				<div class="row mb-5 ">
-					<div class="col-md-7 section-title text-center mx-auto">
-						<span class="sub-title mb-3 mt-1 d-block" style="font-size: 30px; color: #000;">Review</span>
-					</div>
-				</div>
-
-				<div class="row mb-md-2">
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/smashbros.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/crossing.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/fortnite.jpg" class="card-img-top" alt="image">
-							</a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="card shadow-sm border-light mb-4">
-							<a href="#" class="position-relative">
-								<img src="<?=base_url()?>asset/images/zelda.jpg" class="card-img-top" alt="image"> </a>
-							<div class="card-body">
-								<div class="post-meta"><span class="small lh-120 font-italic">Los-Angeles, Hollywood,
-										USA</span>
-								</div>
-								<a href="#">
-									<p class="font-weight-normal text-black">Coworking Workspace</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="head" id="newgame">
-			<div class="container p-5 mb-5" style="background-color: #FFF;">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="display-4 text-lg-left text-black">New Game</div>
-						<div class="display-3 text-lg-left text-black font-weight-bold">Dota 2</div>
-					</div>
-					<div class="col-lg-6">
-						<a href="#" class="position-relative">
-							<img src="<?=base_url()?>asset/images/fortnite.jpg" class="card-img-top" alt="image">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div> <!-- END .site-section -->
-
-		<footer class="site-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 mb-5 mb-lg-0">
-						<div class="row mb-5">
-							<div class="col-12">
-								<h3 class="footer-heading mb-4">About Us</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary
-									regelialia. It is a
-									paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-							</div>
-						</div>
-
-
-
-					</div>
-					<div class="col-lg-3 ml-auto">
-
-						<div class="row mb-5">
-							<div class="col-md-12">
-								<h3 class="footer-heading mb-4">Navigation</h3>
-							</div>
-							<div class="col-md-6 col-lg-6">
-								<ul class="list-unstyled">
-									<li><a href="#home-section" class="smoothscroll">Home</a></li>
-									<li><a href="#what-we-do-section" class="smoothscroll">What We Do</a></li>
-									<li><a href="#about-section" class="smoothscroll">About Us</a></li>
-									<li><a href="#team-section" class="smoothscroll">Team</a></li>
-								</ul>
-							</div>
-
-						</div>
-
-					</div>
-
-
-					<div class="col-lg-4 mb-5 mb-lg-0">
-
-						<div class="mb-5">
-							<h3 class="footer-heading mb-2">Subscribe Newsletter</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
-
-							<form method="post" class="form-subscribe">
-								<div class="form-group mb-3">
-									<input type="text" class="form-control border-white text-white bg-transparent"
-										placeholder="Enter full name" aria-label="Enter Email"
-										aria-describedby="button-addon2">
-								</div>
-								<div class="form-group mb-3">
-									<input type="text" class="form-control border-white text-white bg-transparent"
-										placeholder="Enter email" aria-label="Enter Email"
-										aria-describedby="button-addon2">
-								</div>
-								<div class="form-group">
-									<button class="btn btn-primary px-5" type="submit">Subscribe</button>
-								</div>
-							</form>
-
-						</div>
-
-
-
-
-					</div>
-
-				</div>
-			</div>
-		</footer>
-	</div>
-
-	<script src="<?=base_url()?>asset/js/jquery-3.3.1.min.js"></script>
-	<script src="<?=base_url()?>asset/js/popper.min.js"></script>
-	<script src="<?=base_url()?>asset/js/bootstrap.min.js"></script>
-	<script src="<?=base_url()?>asset/js/owl.carousel.min.js"></script>
-	<script src="<?=base_url()?>asset/js/aos.js"></script>
-	<script src="<?=base_url()?>asset/js/jquery.sticky.js"></script>
-	<script src="<?=base_url()?>asset/js/stickyfill.min.js"></script>
-	<script src="<?=base_url()?>asset/js/jquery.easing.1.3.js"></script>
-	<script src="<?=base_url()?>asset/js/isotope.pkgd.min.js"></script>
-
-	<script src="<?=base_url()?>asset/js/jquery.fancybox.min.js"></script>
-	<script src="<?=base_url()?>asset/js/main.js"></script>
-
-
-</body>
-
-</html>
