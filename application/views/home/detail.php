@@ -151,6 +151,19 @@
 							<p>6 August 2020</p>
 						</div>
 					</div>
+					<div class="comment-box">
+						<span class="commenter-pic">
+							<img src="<?=base_url()?>asset/images/avatar.png" class="img-fluid">
+						</span>
+						<span class="commenter-name">
+							<a href="#">Happy uiuxStream</a>
+						</span>
+						<p class="comment-txt more">Suspendisse massa enim, condimentum sit amet maximus quis, pulvinar
+							sit amet ante. Fusce eleifend dui mi, blandit vehicula orci iaculis ac.</p>
+						<div class="comment-meta">
+							<p>6 August 2020</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
