@@ -21,4 +21,13 @@ class Home extends CI_Controller {
         $this->load->view('home/detail');
         $this->load->view('home/_footer');
     }
+
+    public function profil(){
+        $data = array(
+            'title' => 'Profil | Gadogadoid'
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/profil');
+        $this->load->view('home/_footer');
+    }
 }
