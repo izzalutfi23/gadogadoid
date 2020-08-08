@@ -28,11 +28,18 @@
               <div class="card-header"><h4>Registrasi</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="<?=base_url('login/regis')?>">
+                <form method="POST" action="<?=base_url('auth/proses_registrasi')?>">
 
                   <div class="form-group">
                     <label for="email">Nama</label>
                     <input id="email" type="text" class="form-control" name="nama">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control" name="email">
                     <div class="invalid-feedback">
                     </div>
                   </div>

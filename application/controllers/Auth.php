@@ -17,6 +17,13 @@ class Auth extends CI_Controller {
         $this->load->view('registrasi');
     }
 
+    public function proses_registrasi(){
+        $input = $this->input->post(null, true);
+        $this->Mlogin->proses_regis($input);
+        $this->session->set_flashdata('msg', 'Registrasi Berhasil, Silahkan Login!');
+        redirect('auth');
+    }
+
     public function proses(){
         $user=$_POST['username'];
         $pass=md5($_POST['password']);
