@@ -3,7 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	public function index()
+    function __construct(){
+		parent::__construct();
+		$this->load->model('Mdashboard');
+
+		if($this->session->userdata('user') && $this->session->userdata('role')=="admin"){
+            
+        }
+        else{
+            redirect('auth');
+        }
+    }
+    
+    public function index()
 	{
         $data = array(
             'title' => 'Dashboard | Gadogadoid'

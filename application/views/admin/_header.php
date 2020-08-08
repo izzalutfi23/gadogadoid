@@ -41,7 +41,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-title">Logged in 5 min ago</div>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item has-icon text-danger" href="<?=base_url('login/logout')?>">
+						<a class="dropdown-item has-icon text-danger" href="<?=base_url('auth/logout')?>">
 							<i class="fas fa-sign-out-alt"></i> Logout
 						</a>
 					</div>
@@ -54,7 +54,7 @@
 					<a href="<?=base_url('dashboard')?>">Gadogado.id</a>
 				</div>
 				<div class="sidebar-brand sidebar-brand-sm">
-					<a href="<?=base_url('dashboard')?>">PJ</a>
+					<a href="<?=base_url('dashboard')?>">Gado2</a>
 				</div>
 				<ul class="sidebar-menu">
 					<li class="menu-header">Menu Administrator</li>

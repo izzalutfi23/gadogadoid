@@ -372,12 +372,15 @@
 									</ul>
 
 									<div class="drespon">
+										<?php 
+											if($this->session->userdata('user')){
+										?>
 										<div class="d-inline-block d-lg-block ml-md-0 mr-auto py-3"><a href="#"
 												class="site-menu-toggle text-black" id="dropdownMenuLink"
 												data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												<span class="icon-person h3"></span> <span class="menu-text"
 													style="text-transform: unset;">Hello,
-													Chan &nbsp;<svg width="1em" height="1em" viewBox="0 0 16 16"
+													<?=$this->session->userdata('user')?> &nbsp;<svg width="1em" height="1em" viewBox="0 0 16 16"
 														class="bi bi-chevron-down" fill="currentColor"
 														xmlns="http://www.w3.org/2000/svg">
 														<path fill-rule="evenodd"
@@ -386,9 +389,12 @@
 												<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 													<a class="dropdown-item" href="<?=base_url('home/profil')?>">Show
 														Profile</a>
-													<a class="dropdown-item" href="#">Logout</a>
+													<a class="dropdown-item" href="<?=base_url('auth/logout')?>">Logout</a>
 												</div>
 											</a></div>
+											<?php }else{ ?>
+											<a href="<?=base_url('auth')?>"><p class="pt-3">Login</p></a>
+											<?php } ?>
 									</div>
 
 									<!-- Mobile device -->
@@ -406,6 +412,14 @@
 										<li><a href="#showcase" class="nav-link">Showcase</a></li>
 										<li><a href="#review" class="nav-link">Review</a></li>
 										<li><a href="#newgame" class="nav-link">New Game</a></li>
+										<?php 
+											if($this->session->userdata('user')){
+										?>
+										<li><a href="<?=base_url('home/profil')?>" class="nav-link">Show Profile</a></li>
+										<li><a href="<?=base_url('auth/logout')?>" class="nav-link">Logout</a></li>
+										<?php }else{ ?>
+										<li><a href="<?=base_url('auth')?>" class="nav-link">Login</a></li>
+										<?php } ?>
 									</ul>
 								</div>
 							</nav>
