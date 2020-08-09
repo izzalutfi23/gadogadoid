@@ -24,4 +24,15 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/index');
         $this->load->view('admin/_footer');
     }
+
+    public function game(){
+        $game = $this->Mdashboard->getgame()->result();
+        $data = array(
+            'title' => 'Game | Gadogadoid',
+            'game' => $game
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/game');
+        $this->load->view('admin/_footer');
+    }
 }

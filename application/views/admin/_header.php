@@ -35,8 +35,9 @@
 			<ul class="navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" data-toggle="dropdown"
 						class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-						<img alt="image" src="<?=base_url()?>asset/admin/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-						<div class="d-sm-none d-lg-inline-block">Hi, Admin</div>
+						<img alt="image" src="<?=base_url()?>asset/admin/img/avatar/avatar-1.png"
+							class="rounded-circle mr-1">
+						<div class="d-sm-none d-lg-inline-block">Hi, <?=$this->session->userdata('user')?></div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-title">Logged in 5 min ago</div>
@@ -63,17 +64,25 @@
 							<i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
 						</a>
 					</li>
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-gamepad"></i>
+							<span>Game</span></a>
+						<ul class="dropdown-menu">
+							<li><a class="nav-link" href="<?=base_url('dashboard/game')?>">Game</a></li>
+							<li><a class="nav-link" href="<?=base_url('dashboard/spesifikasi')?>">Spesifikasi</a></li>
+						</ul>
+					</li>
 					<li class="<?=$this->uri->segment(2) == 'buku' ? 'active' : '' ?>">
 						<a class="nav-link" href="<?=base_url('dashboard/buku')?>">
 							<i class="fas fa-book"></i><span>Buku</span>
 						</a>
 					</li>
-                    <li class="<?=$this->uri->segment(2) == 'anggota' ? 'active' : '' ?>">
+					<li class="<?=$this->uri->segment(2) == 'anggota' ? 'active' : '' ?>">
 						<a class="nav-link" href="<?=base_url('dashboard/anggota')?>">
 							<i class="fas fa-users"></i><span>Anggota</span>
 						</a>
 					</li>
-                    <li class="<?=$this->uri->segment(2) == 'peminjam' ? 'active' : '' ?>">
+					<li class="<?=$this->uri->segment(2) == 'peminjam' ? 'active' : '' ?>">
 						<a class="nav-link" href="<?=base_url('dashboard/peminjam')?>">
 							<i class="fas fa-database"></i><span>Peminjam</span>
 						</a>
