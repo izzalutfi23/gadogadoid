@@ -2,26 +2,26 @@
 <div class="main-content">
 	<section class="section">
 		<div class="section-header">
-			<h1>Anggota</h1>
+			<h1>Game</h1>
 		</div>
 
 		<div class="section-body">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<?php if($this->session->flashdata('berhasil')){ ?>
+						<?php if($this->session->flashdata('msg')){ ?>
 						<div class="alert alert-primary alert-dismissible show fade">
 							<div class="alert-body">
 								<button class="close" data-dismiss="alert">
 									<span>&times;</span>
 								</button>
-								<?=$this->session->flashdata('berhasil');?>
+								<?=$this->session->flashdata('msg');?>
 							</div>
 						</div>
 						<?php }?>
 						<div class="card">
 							<div class="card-header">
-								<h4>Data Anggota</h4>
+								<h4>Data Game</h4>
 								<div class="card-header-action">
 									<a href="#tambah" data-toggle="modal" class="btn btn-primary">
 										Tambah
@@ -36,12 +36,12 @@
 												<th>No</th>
 												<th>Nama Game</th>
 												<th>Foto</th>
-                                                <th>Keterangan</th>
-                                                <th>Developer</th>
-                                                <th>Publisher</th>
-                                                <th>Realease</th>
-                                                <th>Tag</th>
-                                                <th>Rating</th>
+												<th>Keterangan</th>
+												<th>Developer</th>
+												<th>Publisher</th>
+												<th>Realease</th>
+												<th>Tag</th>
+												<th>Rating</th>
 												<th>Aksi</th>
 											</tr>
 										</thead>
@@ -53,19 +53,20 @@
 											<tr>
 												<td><?=$no++?></td>
 												<td><?=$data->nama_game?></td>
-												<td><?=$data->foto?></td>
-                                                <td><?=$data->keterangan?></td>
-                                                <td><?=$data->developer?></td>
-                                                <td><?=$data->publisher?></td>
-                                                <td><?=$data->release?></td>
-                                                <td><?=$data->tag?></td>
-                                                <td><?=$data->rating?></td>
+												<td><img src="<?=base_url()?>asset/images/game/<?=$data->foto?>"
+														width="100px"></td>
+												<td><?=substr($data->keterangan, 0, 30)?>...</td>
+												<td><?=$data->developer?></td>
+												<td><?=$data->publisher?></td>
+												<td><?=$data->realease?></td>
+												<td><?=$data->tag?></td>
+												<td><?=$data->rating?></td>
 												<td>
-													<a href="<?=base_url('dashboard/editanggota/')?>"
+													<a href="<?=base_url('dashboard/editgame/'.$data->id_game)?>"
 														class="btn btn-warning">Edit</a>
 													<a onclick="return confirm('Data akan dihapus!')"
-														href="<?=base_url('dashboard/delanggota/')?>"
-														onclick="" class="btn btn-danger ml-2">
+														href="<?=base_url('dashboard/delgame/'.$data->id_game)?>" onclick=""
+														class="btn btn-danger ml-2">
 														Hapus
 													</a>
 												</td>
@@ -97,9 +98,9 @@
 					<div class="form-group">
 						<label>Nama Game</label>
 						<input type="text" name="nama_game" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-						<label>Foto</label>
+					</div>
+					<div class="form-group">
+						<label>Foto (Max 2MB)</label>
 						<input type="file" name="foto" class="form-control" required>
 					</div>
 					<div class="form-group">
@@ -109,20 +110,20 @@
 					<div class="form-group">
 						<label>Developer</label>
 						<input type="text" name="developer" class="form-control" required>
-                    </div>
-                    <div class="form-group">
+					</div>
+					<div class="form-group">
 						<label>Publisher</label>
 						<input type="text" name="publisher" class="form-control" required>
-                    </div>
-                    <div class="form-group">
+					</div>
+					<div class="form-group">
 						<label>Realease</label>
 						<input type="date" name="realease" class="form-control" required>
-                    </div>
-                    <div class="form-group">
+					</div>
+					<div class="form-group">
 						<label>Tag</label>
 						<input type="text" name="tag" class="form-control" required>
-                    </div>
-                    <div class="form-group">
+					</div>
+					<div class="form-group">
 						<label>Rating</label>
 						<input type="text" name="rating" class="form-control" required>
 					</div>
