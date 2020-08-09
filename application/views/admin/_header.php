@@ -64,7 +64,8 @@
 							<i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
 						</a>
 					</li>
-					<li class="nav-item dropdown">
+					<li
+						class="nav-item dropdown <?=$this->uri->segment(2) == 'game' || $this->uri->segment(2) == 'spesifikasi' ? 'active' : '' ?>">
 						<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-gamepad"></i>
 							<span>Game</span></a>
 						<ul class="dropdown-menu">

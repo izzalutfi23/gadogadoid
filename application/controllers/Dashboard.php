@@ -130,4 +130,45 @@ class Dashboard extends CI_Controller {
         $this->session->set_flashdata('msg', 'Data telah dihapus!');
         redirect('dashboard/game');
     }
+
+    public function spesifikasi(){
+        $spek = $this->Mdashboard->getspek()->result();
+        $game = $this->Mdashboard->getgame()->result();
+        $data = array(
+            'title' => 'Spesifikasi | Gadogadoid',
+            'spek' => $spek,
+            'game' => $game
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/spesifikasi');
+        $this->load->view('admin/_footer');
+    }
+
+    public function addspek(){
+        $input = $this->input->post(null, false);
+        $this->Mdashboard->insertspek($input);
+        $this->session->set_flashdata('msg', 'Data berhasil ditambahkan!');
+        redirect('dashboard/spesifikasi');
+    }
+
+    public function editspek($id){
+        $spek = $this->Mdashboard->getspek($id)->row();
+        $game = $this->Mdashboard->getgame()->result();
+        $data = array(
+            'title' => 'Spesifikasi | Gadogadoid',
+            'spek' => $spek,
+            'game' => $game
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/edit_spek');
+        $this->load->view('admin/_footer');
+    }
+
+    public function proses_editspek(){
+        $id = $this->input->post('id');
+        $input = $this->input->post(null, false);
+        $this->Mdashboard->editspek($input, $id);
+        $this->session->set_flashdata('msg', 'Data berhasil diedit!');
+        redirect('dashboard/spesifikasi');
+    }
 }

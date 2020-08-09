@@ -12,7 +12,7 @@
 						<div class="hero bg-primary text-white">
 							<div class="hero-inner">
 								<h2>Selamat Datang, <?=$this->session->userdata('user')?></h2>
-								<p class="lead">Aplikasi Pinjam Buku Sederhana .</p>
+								<p class="lead">Halaman admin web Gadogado.id</p>
 							</div>
 						</div>
 					</div>
