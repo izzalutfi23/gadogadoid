@@ -10,8 +10,14 @@ class Home extends CI_Controller {
 
     public function index()
 	{
+        $banner1 = $this->Mhome->get_banner(1)->row();
+        $banner2 = $this->Mhome->get_banner(2)->row();
+        $banner3 = $this->Mhome->get_banner(3)->row();
         $data = array(
-            'title' => 'Home | Gadogadoid'
+            'title' => 'Home | Gadogadoid',
+            'banner1' => $banner1,
+            'banner2' => $banner2,
+            'banner3' => $banner3
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/home');

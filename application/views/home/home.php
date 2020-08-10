@@ -4,10 +4,10 @@
 		<div class="row">
 			<div class="col-sm-8 mt-4">
 				<div class="content">
-					<img src="<?=base_url()?>asset/images/vainglory1.jpg" class="gambar" width="100%" height="425px">
+					<img src="<?=base_url()?>asset/images/banner/<?=$banner1->foto?>" class="gambar" width="100%" height="425px">
 					<div class="carousel-caption">
 						<div class="text-lg-left capt">Review and Showcase:</div>
-						<div class="display-4 text-lg-left text-light">Vainglory</div>
+						<div class="display-4 text-lg-left text-light"><?=$banner1->nama?></div>
 					</div>
 				</div>
 			</div>
@@ -15,11 +15,11 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="sidebar-top">
-							<img src="<?=base_url()?>asset/images/dota2.jpg" class="gambar" width="100%" height="200px">
+							<img src="<?=base_url()?>asset/images/banner/<?=$banner2->foto?>" class="gambar" width="100%" height="200px">
 							<div class="carousel-caption">
 								<div class="text-lg-left capt">Review and Showcase:
 								</div>
-								<div class="display-4 text-lg-left text-light">Dota 2</div>
+								<div class="display-4 text-lg-left text-light"><?=$banner2->nama?></div>
 							</div>
 						</div>
 					</div>
@@ -27,11 +27,11 @@
 				<div class="row">
 					<div class="col-sm-12 mt-4">
 						<div class="sidebar-bottom">
-							<img src="<?=base_url()?>asset/images/pubg.jpg" class="gambar" width="100%" height="200px">
+							<img src="<?=base_url()?>asset/images/banner/<?=$banner3->foto?>" class="gambar" width="100%" height="200px">
 							<div class="carousel-caption">
 								<div class="text-lg-left capt">Review and Showcase:
 								</div>
-								<div class="display-4 text-lg-left text-light">PUBG</div>
+								<div class="display-4 text-lg-left text-light"><?=$banner3->nama?></div>
 							</div>
 						</div>
 					</div>

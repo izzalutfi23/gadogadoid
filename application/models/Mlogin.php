@@ -10,7 +10,8 @@
                 'nama' => $data['nama'],
                 'email' => $data['email'],
                 'username' => $data['username'],
-                'password' => md5($data['password'])
+                'password' => md5($data['password']),
+                'role' => 'user'
             );
 
             $this->db->insert('user', $param);
