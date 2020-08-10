@@ -283,5 +283,29 @@ class Dashboard extends CI_Controller {
             redirect('dashboard/new');
         }
     }
+
+    public function user(){
+        $user = $this->Mdashboard->get_user()->result();
+        $data = array(
+            'title' => 'User | Gadogadoid',
+            'user' => $user
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/user');
+        $this->load->view('admin/_footer');
+    }
+
+    public function adduser(){
+        $input = $this->input->post(null, false);
+        $this->Mdashboard->insert_user($input);
+        $this->session->set_flashdata('msg', 'Data user telah ditambahkan!');
+        redirect('dashboard/user');
+    }
+
+    public function deluser($id){
+        $this->Mdashboard->del_user($id);
+        $this->session->set_flashdata('msg', 'Data user berhasil dihapus!');
+        redirect('dashboard/user');
+    }
     
 }

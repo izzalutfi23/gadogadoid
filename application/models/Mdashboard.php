@@ -85,5 +85,25 @@
             $this->db->update('new_game', $data, array('id_ngame=>$id'));
         }
 
+        public function get_user(){
+            return $this->db->get('user');
+        }
+
+        public function insert_user($data){
+            $param = array(
+                'nama' => $data['nama'],
+                'email' => $data['email'],
+                'username' => $data['username'],
+                'password' => md5($data['password']),
+                'role' => 'admin'
+            );
+            $this->db->insert('user', $param);
+        }
+
+        public function del_user($id){
+            $this->db->where('id_user', $id);
+            $this->db->delete('user');
+        }
+
     }
 ?>
