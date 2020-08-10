@@ -74,5 +74,16 @@
             $this->db->update('spesifikasi', $param, array('id_spek'=>$id));
         }
 
+        public function get_newgame($id=null){
+            if($id!=null){
+                $this->db->where('id_ngame', $id);
+            }
+            return $this->db->get('new_game');
+        }
+
+        public function edit_ngame($data, $id){
+            $this->db->update('new_game', $data, array('id_ngame=>$id'));
+        }
+
     }
 ?>

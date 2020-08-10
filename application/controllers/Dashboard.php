@@ -227,4 +227,61 @@ class Dashboard extends CI_Controller {
         $this->session->set_flashdata('msg', 'Data berhasil diedit!');
         redirect('dashboard/spesifikasi');
     }
+
+    public function new(){
+        $new_game = $this->Mdashboard->get_newgame()->result();
+        $data = array(
+            'title' => 'New Game | Gadogadoid',
+            'new' => $new_game
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/newgame');
+        $this->load->view('admin/_footer');
+    }
+
+    public function editnew($id){
+        $new_game = $this->Mdashboard->get_newgame($id)->row();
+        $data = array(
+            'title' => 'Edit New Game | Gadogadoid',
+            'new' => $new_game
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/edit_newgame');
+        $this->load->view('admin/_footer');
+    }
+
+    public function proses_editngame(){
+        $config['upload_path']          = './asset/images/new';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 3000;
+        $config['max_width']            = 10240;
+        $config['max_height']           = 7680;
+
+        $this->load->library('upload', $config);
+
+        $id = $this->input->post('id');
+
+        if ( ! $this->upload->do_upload('foto'))
+        {
+            $data = array(
+                'nama' => $this->input->post('nama')
+            );
+
+            $this->Mdashboard->edit_ngame($data, $id);
+            $this->session->set_flashdata('msg', 'Data berhasil diubah!');
+            redirect('dashboard/new');
+        }
+        else
+        {
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'foto' => $_FILES['foto']['name']
+            );
+
+            $this->Mdashboard->edit_ngame($data, $id);
+            $this->session->set_flashdata('msg', 'Data berhasil diubah!');
+            redirect('dashboard/new');
+        }
+    }
+    
 }

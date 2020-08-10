@@ -78,14 +78,14 @@
 							<li><a class="nav-link" href="<?=base_url('dashboard/spesifikasi')?>">Spesifikasi</a></li>
 						</ul>
 					</li>
-					<li class="<?=$this->uri->segment(2) == 'anggota' ? 'active' : '' ?>">
-						<a class="nav-link" href="<?=base_url('dashboard/anggota')?>">
-							<i class="fas fa-users"></i><span>Anggota</span>
+					<li class="<?=$this->uri->segment(2) == 'new' ? 'active' : '' ?>">
+						<a class="nav-link" href="<?=base_url('dashboard/new')?>">
+							<i class="fas fa-star"></i><span>New Game</span>
 						</a>
 					</li>
-					<li class="<?=$this->uri->segment(2) == 'peminjam' ? 'active' : '' ?>">
-						<a class="nav-link" href="<?=base_url('dashboard/peminjam')?>">
-							<i class="fas fa-database"></i><span>Peminjam</span>
+					<li class="<?=$this->uri->segment(2) == 'user' ? 'active' : '' ?>">
+						<a class="nav-link" href="<?=base_url('dashboard/user')?>">
+							<i class="fas fa-users"></i><span>User</span>
 						</a>
 					</li>
 				</ul>
