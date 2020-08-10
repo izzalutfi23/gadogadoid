@@ -1,6 +1,17 @@
 <?php 
     class Mdashboard extends CI_Model{
-        
+    
+        public function get_banner($id=null){
+            if($id!=null){
+                $this->db->where('id_banner', $id);
+            }
+            return $this->db->get('banner');
+        }
+
+        public function edit_banner($data, $id){
+            $this->db->update('banner', $data, array('id_banner'=>$id));
+        }
+
         public function getgame($id=null){
             if($id!=null){
                 $this->db->where('id_game', $id);

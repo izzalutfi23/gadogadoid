@@ -64,6 +64,11 @@
 							<i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
 						</a>
 					</li>
+					<li class="<?=$this->uri->segment(2) == 'banner' ? 'active' : '' ?>">
+						<a class="nav-link" href="<?=base_url('dashboard/banner')?>">
+							<i class="fa fa-image"></i><span>Banner</span>
+						</a>
+					</li>
 					<li
 						class="nav-item dropdown <?=$this->uri->segment(2) == 'game' || $this->uri->segment(2) == 'spesifikasi' ? 'active' : '' ?>">
 						<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-gamepad"></i>
@@ -72,11 +77,6 @@
 							<li><a class="nav-link" href="<?=base_url('dashboard/game')?>">Game</a></li>
 							<li><a class="nav-link" href="<?=base_url('dashboard/spesifikasi')?>">Spesifikasi</a></li>
 						</ul>
-					</li>
-					<li class="<?=$this->uri->segment(2) == 'buku' ? 'active' : '' ?>">
-						<a class="nav-link" href="<?=base_url('dashboard/buku')?>">
-							<i class="fas fa-book"></i><span>Buku</span>
-						</a>
 					</li>
 					<li class="<?=$this->uri->segment(2) == 'anggota' ? 'active' : '' ?>">
 						<a class="nav-link" href="<?=base_url('dashboard/anggota')?>">

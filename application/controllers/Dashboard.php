@@ -25,6 +25,62 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/_footer');
     }
 
+    public function banner(){
+        $banner = $this->Mdashboard->get_banner()->result();
+        $data = array(
+            'title' => 'Banner | Gadogadoid',
+            'banner' => $banner
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/banner');
+        $this->load->view('admin/_footer');
+    }
+
+    public function editbanner($id){
+        $banner = $this->Mdashboard->get_banner($id)->row();
+        $data = array(
+            'title' => 'Edit Banner | Gadogadoid',
+            'banner' => $banner
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/edit_banner');
+        $this->load->view('admin/_footer');
+    }
+
+    public function proses_editbanner(){
+        $config['upload_path']          = './asset/images/banner';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 3000;
+        $config['max_width']            = 10240;
+        $config['max_height']           = 7680;
+
+        $this->load->library('upload', $config);
+
+        $id = $this->input->post('id');
+
+        if ( ! $this->upload->do_upload('foto'))
+        {
+            $data = array(
+                'nama' => $this->input->post('nama')
+            );
+
+            $this->Mdashboard->edit_banner($data, $id);
+            $this->session->set_flashdata('msg', 'Banner berhasil diubah!');
+            redirect('dashboard/banner');
+        }
+        else
+        {
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'foto' => $_FILES['foto']['name']
+            );
+
+            $this->Mdashboard->edit_banner($data, $id);
+            $this->session->set_flashdata('msg', 'Banner berhasil diubah!');
+            redirect('dashboard/banner');
+        }
+    }
+
     public function game(){
         $game = $this->Mdashboard->getgame()->result();
         $data = array(
