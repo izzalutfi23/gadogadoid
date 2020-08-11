@@ -14,5 +14,11 @@
             return $this->db->get('game');
         }
 
+        public function get_review(){
+            $this->db->limit(4, 0);
+            $this->db->order_by('id_game', 'desc');
+            return $this->db->get('game');
+        }
+
     }
 ?>

@@ -14,12 +14,14 @@ class Home extends CI_Controller {
         $banner2 = $this->Mhome->get_banner(2)->row();
         $banner3 = $this->Mhome->get_banner(3)->row();
         $game = $this->Mhome->get_game()->result();
+        $review = $this->Mhome->get_review()->result();
         $data = array(
             'title' => 'Home | Gadogadoid',
             'banner1' => $banner1,
             'banner2' => $banner2,
             'banner3' => $banner3,
-            'game' => $game
+            'game' => $game,
+            'review' => $review
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/home');
