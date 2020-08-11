@@ -35,5 +35,16 @@
             return $this->db->get('user');
         }
 
+        public function get_komentar($id){
+            $this->db->join('user', 'user.id_user=komentar.id_user');
+            $this->db->join('game', 'game.id_game=komentar.id_game');
+            $this->db->where('komentar.id_game', $id);
+            return $this->db->get('komentar');
+        }
+
+        public function insertkomen($data){
+            $this->db->insert('komentar', $data);
+        }
+
     }
 ?>

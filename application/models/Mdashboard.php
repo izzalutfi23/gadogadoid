@@ -105,5 +105,17 @@
             $this->db->delete('user');
         }
 
+        public function get_komen($id){
+            $this->db->where('komentar.id_game', $id);
+            $this->db->join('game', 'game.id_game=komentar.id_game');
+            $this->db->join('user', 'user.id_user=komentar.id_user');
+            return $this->db->get('komentar');
+        }
+
+        public function delkomen($id){
+            $this->db->where('id_komen', $id);
+            $this->db->delete('komentar');
+        }
+
     }
 ?>

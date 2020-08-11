@@ -39,9 +39,6 @@
 												<th>Keterangan</th>
 												<th>Developer</th>
 												<th>Publisher</th>
-												<th>Realease</th>
-												<th>Tag</th>
-												<th>Rating</th>
 												<th>Aksi</th>
 											</tr>
 										</thead>
@@ -58,9 +55,6 @@
 												<td><?=substr($data->keterangan, 0, 30)?>...</td>
 												<td><?=$data->developer?></td>
 												<td><?=$data->publisher?></td>
-												<td><?=$data->realease?></td>
-												<td><?=$data->tag?></td>
-												<td><?=$data->rating?></td>
 												<td>
 													<a href="<?=base_url('dashboard/editgame/'.$data->id_game)?>"
 														class="btn btn-warning">Edit</a>
@@ -69,6 +63,8 @@
 														class="btn btn-danger ml-2">
 														Hapus
 													</a>
+													<a href="<?=base_url('dashboard/lihatkomen/'.$data->id_game)?>"
+														class="btn btn-primary m-1">Lihat Komentar</a>
 												</td>
 											</tr>
 											<?php } ?>

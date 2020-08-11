@@ -32,13 +32,32 @@ class Home extends CI_Controller {
     
     public function detail($id){
         $detail = $this->Mhome->get_game($id)->row();
+        $komentar = $this->Mhome->get_komentar($id);
+        $user = $this->session->userdata('user');
+        $getuser = $this->Mhome->get_user($user)->row();
+        $jmlkomen = $komentar->num_rows();
         $data = array(
             'title' => 'Detail | Gadogadoid',
-            'detail' => $detail
+            'detail' => $detail,
+            'komentar' => $komentar->result(),
+            'user' => $getuser,
+            'jml' => $jmlkomen
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/detail');
         $this->load->view('home/_footer');
+    }
+
+    public function addkomen(){
+        $data = array(
+            'id_user' => $this->input->post('id_user'),
+            'id_game' => $this->input->post('id_game'),
+            'komentar' => $this->input->post('komentar'),
+            'tanggal' => date('Y-m-d')
+        );
+        $this->Mhome->insertkomen($data);
+        $this->session->set_flashdata('msg', 'Komentar berhasil ditambahkan!');
+        redirect('home/detail/'.$this->input->post('id_game'));
     }
 
     public function profil(){
@@ -96,4 +115,5 @@ class Home extends CI_Controller {
         $this->load->view('home/lainnya');
         $this->load->view('home/_footer');
     }
+
 }

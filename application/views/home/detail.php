@@ -1,8 +1,21 @@
 <div class="head" id="newgame">
 	<div class="container p-5" style="background-color: #FFF;">
+
+		<?php if($this->session->flashdata('msg')){ ?>
+		<div class="alert alert-primary alert-dismissible show fade">
+			<div class="alert-body">
+				<button class="close" data-dismiss="alert">
+					<span>&times;</span>
+				</button>
+				<?=$this->session->flashdata('msg');?>
+			</div>
+		</div>
+		<?php }?>
+
 		<div class="row mb-5 ">
 			<div class="col-md-7 section-title text-center mx-auto">
-				<span class="sub-title mb-3 mt-1 d-block" style="font-size: 30px; color: #000;"><?=$detail->nama_game?></span>
+				<span class="sub-title mb-3 mt-1 d-block"
+					style="font-size: 30px; color: #000;"><?=$detail->nama_game?></span>
 			</div>
 		</div>
 		<p class="text-black font-weight-bold"><?=$detail->keterangan?></p>
@@ -123,44 +136,47 @@
 			<div class="col-12">
 				<div class="comments">
 					<div class="comments-details">
-						<span class="total-comments comments-sort">11 Reviewer</span>
+						<span class="total-comments comments-sort"><?=$jml?> Reviewer</span>
 					</div>
 					<div class="comment-box add-comment">
 						<span class="commenter-pic">
 							<img src="<?=base_url()?>asset/images/avatar.png" class="img-fluid">
 						</span>
 						<span class="commenter-name">
-							<input type="text" placeholder="Add a public comment" name="Add Comment">
-							<button type="submit" class="btn btn-default">Comment</button>
-							<button type="cancel" class="btn btn-default">Cancel</button>
+							<form action="<?=base_url('home/addkomen')?>" method="POST">
+								<input type="hidden" name="id_game" value="<?=$detail->id_game?>">
+								<?php 
+									if($this->session->userdata('user')){
+								?>
+								<input type="hidden" name="id_user" value="<?=$user->id_user?>">
+								<?php } ?>
+								<input type="text" placeholder="Add a public review (Login terlebih dahulu)"
+									name="komentar">
+								<button type="submit" <?=$this->session->userdata('user') == '' ? 'disabled' : '' ?>
+									class="btn btn-default">Comment</button>
+								<button type="cancel" class="btn btn-default">Cancel</button>
+							</form>
 						</span>
 					</div>
+
+					<?php
+						foreach($komentar as $komen){
+					?>
 					<div class="comment-box">
 						<span class="commenter-pic">
 							<img src="<?=base_url()?>asset/images/avatar.png" class="img-fluid">
 						</span>
 						<span class="commenter-name">
-							<a href="#">Happy uiuxStream</a>
+							<a href="#"><?=$komen->nama?></a>
 						</span>
-						<p class="comment-txt more">Suspendisse massa enim, condimentum sit amet maximus quis, pulvinar
-							sit amet ante. Fusce eleifend dui mi, blandit vehicula orci iaculis ac.</p>
+						<p class="comment-txt more"><?=$komen->komentar?></p>
 						<div class="comment-meta">
-							<p>6 August 2020</p>
+							<p><?=date('d M Y', strtotime($komen->tanggal))?></p>
 						</div>
 					</div>
-					<div class="comment-box">
-						<span class="commenter-pic">
-							<img src="<?=base_url()?>asset/images/avatar.png" class="img-fluid">
-						</span>
-						<span class="commenter-name">
-							<a href="#">Happy uiuxStream</a>
-						</span>
-						<p class="comment-txt more">Suspendisse massa enim, condimentum sit amet maximus quis, pulvinar
-							sit amet ante. Fusce eleifend dui mi, blandit vehicula orci iaculis ac.</p>
-						<div class="comment-meta">
-							<p>6 August 2020</p>
-						</div>
-					</div>
+					<?php } ?>
+
+
 				</div>
 			</div>
 		</div>

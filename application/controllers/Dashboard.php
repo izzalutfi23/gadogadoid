@@ -307,5 +307,22 @@ class Dashboard extends CI_Controller {
         $this->session->set_flashdata('msg', 'Data user berhasil dihapus!');
         redirect('dashboard/user');
     }
+
+    public function lihatkomen($id){
+        $komen = $this->Mdashboard->get_komen($id)->result();
+        $data = array(
+            'title' => 'Komentar | Gadogadoid',
+            'komen' => $komen
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/komentar');
+        $this->load->view('admin/_footer');
+    }
+
+    public function delkomen($id){
+        $this->Mdashboard->delkomen($id);
+        $this->session->set_flashdata('msg', 'Komentar telah dihapus!');
+        redirect('dashboard/lihatkomen/'.$this->uri->segment(4));
+    }
     
 }
