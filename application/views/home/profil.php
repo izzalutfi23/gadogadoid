@@ -7,7 +7,7 @@
 						<div>
 							<img src="<?=base_url()?>asset/images/avatar.png" alt="Texto Alternativo"
 								class="img-thumbnail" style="border-radius: 100%; margin: 10px; width: 250px;">
-							<h2>Gopinath Perumal</h2>
+							<h2><?=$user->nama?></h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua.</p>
 						</div>
@@ -18,37 +18,31 @@
 				<div class="row">
 					<div class="col-md-12">
 						<form role="form">
-							<h2>Edit your profile.<small>It's always easy</small></h2>
+							<h2>Edit your profile</h2>
 							<hr class="colorgraph">
-							<div class="row">
-								<div class="col-xs-12 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" name="first_name" id="first_name"
-											class="form-control input-lg" placeholder="First Name" tabindex="1">
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" name="last_name" id="last_name" class="form-control input-lg"
-											placeholder="Last Name" tabindex="2">
-									</div>
-								</div>
+							<div class="form-group">
+								<label for="email">Nama</label>
+								<input type="text" name="nama" class="form-control input-lg" value="<?=$user->nama?>"
+									tabindex="4">
 							</div>
 							<div class="form-group">
-								<input type="email" name="email" id="email" class="form-control input-lg"
-									placeholder="Email Address" tabindex="4">
+							<label for="email">Email</label>
+								<input type="email" name="email" class="form-control input-lg" value="<?=$user->email?>"
+									tabindex="4">
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="password" name="password" id="password"
-											class="form-control input-lg" placeholder="Password" tabindex="5">
+									<label for="email">Username</label>
+										<input type="text" name="username"
+											class="form-control input-lg" value="<?=$user->username?>" tabindex="5">
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="password" name="password_confirmation" id="password_confirmation"
-											class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+									<label for="email">Password</label>
+										<input type="text" name="password"
+											class="form-control input-lg" placeholder="New Password" tabindex="6">
 									</div>
 								</div>
 							</div>
@@ -56,7 +50,7 @@
 							<div class="row">
 								<div class="col-xs-12 col-md-6"></div>
 								<div class="col-xs-12 col-md-6"><a href="#"
-										class="btn btn-success btn-block btn-lg">Save</a></div>
+										class="btn btn-success btn-block btn-lg">Ubah</a></div>
 							</div>
 						</form>
 					</div>

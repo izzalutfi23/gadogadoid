@@ -8,7 +8,8 @@
 
         public function get_game($id=null){
             if($id!=null){
-                $this->db->where('id_game', $id);
+                $this->db->join('spesifikasi', 'spesifikasi.id_game=game.id_game');
+                $this->db->where('game.id_game', $id);
             }
             $this->db->limit(8, 0);
             return $this->db->get('game');
@@ -27,6 +28,11 @@
         public function get_newgame(){
             $this->db->where('id_ngame', 1);
             return $this->db->get('new_game');
+        }
+
+        public function get_user($user){
+            $this->db->where('username', $user);
+            return $this->db->get('user');
         }
 
     }

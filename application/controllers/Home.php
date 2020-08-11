@@ -30,9 +30,11 @@ class Home extends CI_Controller {
         $this->load->view('home/_footer');
     }
     
-    public function detail(){
+    public function detail($id){
+        $detail = $this->Mhome->get_game($id)->row();
         $data = array(
-            'title' => 'Detail | Gadogadoid'
+            'title' => 'Detail | Gadogadoid',
+            'detail' => $detail
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/detail');
@@ -40,8 +42,11 @@ class Home extends CI_Controller {
     }
 
     public function profil(){
+        $user = $this->session->userdata('user');
+        $getuser = $this->Mhome->get_user($user)->row();
         $data = array(
-            'title' => 'Profil | Gadogadoid'
+            'title' => 'Profil | Gadogadoid',
+            'user' => $getuser
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/profil');
