@@ -14,6 +14,10 @@
             return $this->db->get('game');
         }
 
+        public function get_gamelainnya($par){
+            return $this->db->get('game', $par['perpage'], $par['start']);
+        }
+
         public function get_review(){
             $this->db->limit(4, 0);
             $this->db->order_by('id_game', 'desc');

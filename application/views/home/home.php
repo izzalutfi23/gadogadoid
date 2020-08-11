@@ -73,7 +73,7 @@
 		</div>
 		<div class="row py-4 mt-md-5">
 			<div class="col text-center">
-				<a href="#" class="btn btn-lg shadow btn-primary mt-1">Find Another Game <svg width="1em" height="1em"
+				<a href="<?=base_url('home/lainnya')?>" class="btn btn-lg shadow btn-primary mt-1">Find Another Game <svg width="1em" height="1em"
 						viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor"
 						xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd"
