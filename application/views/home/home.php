@@ -128,11 +128,11 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="display-4 text-lg-left text-black">New Game</div>
-				<div class="display-3 text-lg-left text-black font-weight-bold">Dota 2</div>
+				<div class="display-3 text-lg-left text-black font-weight-bold"><?=$newgame->nama?></div>
 			</div>
 			<div class="col-lg-6">
 				<a href="#" class="position-relative">
-					<img src="<?=base_url()?>asset/images/fortnite.jpg" class="card-img-top" alt="image">
+					<img src="<?=base_url()?>asset/images/new/<?=$newgame->foto?>" class="card-img-top" alt="image">
 				</a>
 			</div>
 		</div>

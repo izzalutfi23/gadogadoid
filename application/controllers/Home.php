@@ -15,13 +15,15 @@ class Home extends CI_Controller {
         $banner3 = $this->Mhome->get_banner(3)->row();
         $game = $this->Mhome->get_game()->result();
         $review = $this->Mhome->get_review()->result();
+        $newgame = $this->Mhome->get_newgame()->row();
         $data = array(
             'title' => 'Home | Gadogadoid',
             'banner1' => $banner1,
             'banner2' => $banner2,
             'banner3' => $banner3,
             'game' => $game,
-            'review' => $review
+            'review' => $review,
+            'newgame' => $newgame
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/home');

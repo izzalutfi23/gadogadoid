@@ -20,5 +20,10 @@
             return $this->db->get('game');
         }
 
+        public function get_newgame(){
+            $this->db->where('id_ngame', 1);
+            return $this->db->get('new_game');
+        }
+
     }
 ?>
