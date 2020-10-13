@@ -46,5 +46,28 @@
             $this->db->insert('komentar', $data);
         }
 
+        public function addlike($data){
+            $this->db->insert('suka', $data);
+        }
+
+        public function get_like($id_game){
+            $this->db->where('id_game', $id_game);
+            return $this->db->get('suka');
+        }
+
+        public function get_like1($param){
+            return $this->db->get_where('suka', $param);
+        }
+
+        public function del_like($game, $user){
+            $this->db->where('id_game', $game);
+            $this->db->where('id_user', $user);
+            $this->db->delete('suka');
+        }
+
+        public function updatelike($data){
+            $this->db->update('suka', $data, ['id_game'=>$data['id_game'], 'id_user'=>$data['id_user']]);
+        }
+
     }
 ?>

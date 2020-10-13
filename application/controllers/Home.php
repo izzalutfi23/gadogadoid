@@ -36,12 +36,14 @@ class Home extends CI_Controller {
         $user = $this->session->userdata('user');
         $getuser = $this->Mhome->get_user($user)->row();
         $jmlkomen = $komentar->num_rows();
+        $suka = $this->Mhome->get_like($id);
         $data = array(
             'title' => 'Detail | Gadogadoid',
             'detail' => $detail,
             'komentar' => $komentar->result(),
             'user' => $getuser,
-            'jml' => $jmlkomen
+            'jml' => $jmlkomen,
+            'suka' => $suka->result()
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/detail');
@@ -58,6 +60,94 @@ class Home extends CI_Controller {
         $this->Mhome->insertkomen($data);
         $this->session->set_flashdata('msg', 'Komentar berhasil ditambahkan!');
         redirect('home/detail/'.$this->input->post('id_game'));
+    }
+
+    public function like(){
+        $game = $this->uri->segment(3);
+        $user = $this->uri->segment(4);
+        $param = [
+            'id_game' => $game,
+            'id_user' => $user,
+            'status' => '1'
+        ];
+        $like = $this->Mhome->get_like1($param);
+        $num = $like->num_rows();
+        if($num>0){
+            $this->Mhome->del_like($game, $user);
+            redirect('home/detail/'.$game);
+        }
+        else{
+            $par = [
+                'id_game' => $game,
+                'id_user' => $user
+            ];
+            $li = $this->Mhome->get_like1($par);
+            $nu = $li->num_rows();
+            if($nu>0){
+                $data = [
+                    'id_game' => $game,
+                    'id_user' => $user,
+                    'status' => '1'
+                ];
+                $this->Mhome->updatelike($data);
+                $this->session->set_flashdata('msg', 'Liked!');
+                redirect('home/detail/'.$game);
+            }
+            else{
+                $data = [
+                    'id_game' => $game,
+                    'id_user' => $user,
+                    'status' => '1'
+                ];
+                $this->Mhome->addlike($data);
+                $this->session->set_flashdata('msg', 'Liked!');
+                redirect('home/detail/'.$game);
+            }
+        }
+    }
+
+    public function unlike(){
+        $game = $this->uri->segment(3);
+        $user = $this->uri->segment(4);
+        $param = [
+            'id_game' => $game,
+            'id_user' => $user,
+            'status' => '0'
+        ];
+        $like = $this->Mhome->get_like1($param);
+        $num = $like->num_rows();
+        if($num>0){
+            $this->Mhome->del_like($game, $user);
+            redirect('home/detail/'.$game);
+        }
+        else{
+            $par = [
+                'id_game' => $game,
+                'id_user' => $user
+            ];
+            $li = $this->Mhome->get_like1($par);
+            $nu = $li->num_rows();
+            if($nu>0){
+                $data = [
+                    'id_game' => $game,
+                    'id_user' => $user,
+                    'status' => '0'
+                ];
+                $this->Mhome->updatelike($data);
+                $this->session->set_flashdata('msg', 'Unliked!');
+                redirect('home/detail/'.$game);
+            }
+            else{
+                $data = [
+                    'id_game' => $game,
+                    'id_user' => $user,
+                    'status' => '0'
+                ];
+                $this->Mhome->addlike($data);
+                $this->session->set_flashdata('msg', 'Unliked!');
+                redirect('home/detail/'.$game);
+            }
+        }
     }
 
     public function profil(){

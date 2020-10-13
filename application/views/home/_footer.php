@@ -22,10 +22,10 @@
 					</div>
 					<div class="col-md-6 col-lg-6">
 						<ul class="list-unstyled">
-							<li><a href="#home-section" class="smoothscroll">Home</a></li>
-							<li><a href="#what-we-do-section" class="smoothscroll">What We Do</a></li>
-							<li><a href="#about-section" class="smoothscroll">About Us</a></li>
-							<li><a href="#team-section" class="smoothscroll">Team</a></li>
+							<li><a href="<?=base_url('home')?>" class="smoothscroll">Home</a></li>
+							<li><a href="#showcase" class="smoothscroll">Showcase</a></li>
+							<li><a href="#review" class="smoothscroll">Review</a></li>
+							<li><a href="#newgame" class="smoothscroll">New Game</a></li>
 						</ul>
 					</div>
 

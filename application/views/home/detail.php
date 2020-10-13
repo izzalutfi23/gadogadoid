@@ -1,3 +1,31 @@
+<?php
+	$like = 0;
+	$unlike = 0;
+	$total = 0;
+	$rating = "Belum Ada";
+	foreach($suka as $l)
+	{
+		$total = $total+1;
+		if($l->status == 1){
+			$like = $like+$l->status;
+		}
+		else{
+			$unlike = $unlike+1;
+		}
+	}
+	if($total>0){
+		$presentase = $like*100/$total;
+		if($presentase>=70){
+			$rating = "Bujug Buneng";
+		}
+		else if($presentase>=60 && $presentase<70){
+			$rating = "Bahenol";
+		}
+		else{
+			$rating ="Kaga Danta";
+		}
+	}
+?>
 <div class="head" id="newgame">
 	<div class="container p-5" style="background-color: #FFF;">
 
@@ -51,7 +79,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div>Rating</div>
-						<p class="font-weight-bold text-black"><?=$detail->rating?></p>
+						<p class="font-weight-bold text-black"><?=$rating?></p>
 					</div>
 				</div>
 				<!-- End About -->
@@ -136,7 +164,44 @@
 			<div class="col-12">
 				<div class="comments">
 					<div class="comments-details">
-						<span class="total-comments comments-sort"><?=$jml?> Reviewer</span>
+						<div class="row">
+							<div class="col-lg-6">
+								<span class="total-comments comments-sort"><?=$jml?> Komentar</span>
+							</div>
+							<div class="col-lg-6">
+								<span class="total-comments comments-sort float-lg-right">
+									<div class="row">
+										<?php 
+											if($this->session->userdata('user')){
+										?>
+										<div class="col-lg-6">
+											<a href="<?=base_url('home/like/'.$detail->id_game.'/'.$user->id_user)?>"><img
+													src="<?=base_url('asset/images/ikon/lik.png')?>" width="30px"></a>
+											<?=$like?>
+										</div>
+										<div class="col-lg-6">
+											<a href="<?=base_url('home/unlike/'.$detail->id_game.'/'.$user->id_user)?>"><img
+													src="<?=base_url('asset/images/ikon/dis.png')?>" width="30px"></a>
+											<?=$unlike?>
+										</div>
+										<?php 
+											}else{
+										?>
+										<div class="col-lg-6">
+											<a href="#"><img
+													src="<?=base_url('asset/images/ikon/lik.png')?>" width="30px"></a>
+											<?=$like?>
+										</div>
+										<div class="col-lg-6">
+											<a href="#"><img
+													src="<?=base_url('asset/images/ikon/dis.png')?>" width="30px"></a>
+											<?=$unlike?>
+										</div>
+										<?php } ?>
+									</div>
+								</span>
+							</div>
+						</div>
 					</div>
 					<div class="comment-box add-comment">
 						<span class="commenter-pic">
@@ -157,6 +222,7 @@
 								<button type="cancel" class="btn btn-default">Cancel</button>
 							</form>
 						</span>
+
 					</div>
 
 					<?php
