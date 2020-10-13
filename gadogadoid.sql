@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2020 at 05:27 PM
+-- Generation Time: Oct 13, 2020 at 02:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -97,7 +97,9 @@ CREATE TABLE `komentar` (
 INSERT INTO `komentar` (`id_komen`, `id_user`, `id_game`, `komentar`, `tanggal`) VALUES
 (2, 4, 6, ' vch dj dieg geigicgeigci geicg ieg cigeicgig cig eicgigcigeicg ieg cigieg cig cg e gcig e cge', '2020-08-11'),
 (3, 2, 6, 'komentarku yes', '2020-08-11'),
-(4, 2, 6, 'Komentarku kedua', '2020-08-11');
+(4, 2, 6, 'Komentarku kedua', '2020-08-11'),
+(5, 4, 7, 'woke', '2020-10-13'),
+(6, 5, 13, 'woy', '2020-10-13');
 
 -- --------------------------------------------------------
 
@@ -156,6 +158,33 @@ INSERT INTO `spesifikasi` (`id_spek`, `id_game`, `os_min`, `processor_min`, `mem
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `suka`
+--
+
+CREATE TABLE `suka` (
+  `id_suka` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
+  `id_game` int(10) NOT NULL,
+  `status` enum('1','0') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `suka`
+--
+
+INSERT INTO `suka` (`id_suka`, `id_user`, `id_game`, `status`) VALUES
+(13, 4, 6, '1'),
+(15, 2, 6, '1'),
+(18, 4, 8, '0'),
+(19, 4, 11, '1'),
+(21, 5, 6, '1'),
+(22, 5, 12, '1'),
+(23, 5, 13, '1'),
+(24, 5, 11, '1');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -176,7 +205,8 @@ INSERT INTO `user` (`id_user`, `nama`, `email`, `username`, `password`, `role`) 
 (1, 'Septian David', 'ibibi@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
 (2, 'Chan', 'chan@gmail.com', 'chan', '26c322652770620e64ac90682eb6504c', 'user'),
 (3, 'test', 'test@gmail.com', 'test', '098f6bcd4621d373cade4e832627b4f6', 'user'),
-(4, 'Muhammad Izza Lutfi', 'izzalutfi045@gmail.com', 'izza', 'cdb0b6889f4def26f43951b2d5b7a9e3', 'user');
+(4, 'Muhammad Izza Lutfi', 'izzalutfi045@gmail.com', 'izza', 'cdb0b6889f4def26f43951b2d5b7a9e3', 'user'),
+(5, 'tes', 'test@gmail.com', 'tes', '28b662d883b6d76fd96e4ddc5e9ba780', 'user');
 
 --
 -- Indexes for dumped tables
@@ -216,6 +246,14 @@ ALTER TABLE `spesifikasi`
   ADD KEY `id_game` (`id_game`);
 
 --
+-- Indexes for table `suka`
+--
+ALTER TABLE `suka`
+  ADD PRIMARY KEY (`id_suka`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_game` (`id_game`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -241,7 +279,7 @@ ALTER TABLE `game`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komen` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_komen` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `new_game`
@@ -256,10 +294,16 @@ ALTER TABLE `spesifikasi`
   MODIFY `id_spek` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `suka`
+--
+ALTER TABLE `suka`
+  MODIFY `id_suka` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -277,6 +321,13 @@ ALTER TABLE `komentar`
 --
 ALTER TABLE `spesifikasi`
   ADD CONSTRAINT `spesifikasi_ibfk_1` FOREIGN KEY (`id_game`) REFERENCES `game` (`id_game`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `suka`
+--
+ALTER TABLE `suka`
+  ADD CONSTRAINT `suka_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `suka_ibfk_2` FOREIGN KEY (`id_game`) REFERENCES `game` (`id_game`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
