@@ -17,12 +17,15 @@
 		$presentase = $like*100/$total;
 		if($presentase>=70){
 			$rating = "Bujug Buneng";
+			$img = "bujug.jpg";
 		}
 		else if($presentase>=60 && $presentase<70){
 			$rating = "Bahenol";
+			$img = "bahenol.jpg";
 		}
 		else{
 			$rating ="Kaga Danta";
+			$img = "kaga.jpg";
 		}
 	}
 ?>
@@ -80,6 +83,7 @@
 					<div class="col-lg-6">
 						<div>Rating</div>
 						<p class="font-weight-bold text-black"><?=$rating?></p>
+						<img src="<?=base_url()?>asset/images/<?=$img?>" width="100px">
 					</div>
 				</div>
 				<!-- End About -->
